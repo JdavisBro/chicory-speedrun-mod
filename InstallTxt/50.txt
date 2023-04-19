@@ -1,0 +1,28 @@
+Installation:
+
+Download the mac version of Chicory:
+
+Open steam console by pressing ctrl + r and typing
+
+steam://open/console
+
+In steam console paste the following command:
+
+download_depot 1123450 1123452 6113710901506258771
+
+this will download version .50 of the Mac version of Chicory to BaseSteamFodler\steamapps\content\app_1123450\depot_1123452\
+
+Rename and move the resources folder from that download, I'll call this the Game folder. This is usually at `C:\Program Files (x86)\Steam\steamapps\content\app_1123450\depot_1123452\Mac\Chicory_A_Colorful_Tale.app\Contents\Resources` for a regular steam installation.
+
+Move the speedrun-mod folder into the game folder and go inside it.
+
+Optional: Hiding Music Files
+
+- To make the game folder easier to navigate you can run the HideAudioFiles.bat script found inside the speedrun-mod folder 
+- If you want to make audio files visible again, you can turn on hidden files (File Explorer > View > Show > Hidden Files), select all (ctrl+a), right click > properties, and turn on hidden
+
+Now run Patch.bat.
+
+Installation complete! To run the mod go back to your game folder and run RunSpeedrunMod.bat
+
+To update, move the new chicory-speedrun-mod folder into the game folder and run Patch.bat again.
