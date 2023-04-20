@@ -17,6 +17,7 @@ Rename and move the resources folder from that download, I'll call this the Game
 
 Move the speedrun-mod folder into the game folder and go inside it.
 
+- Optional: Copy Controls and Settings from regular Chicory by running CopySettings.bat
 <details>
 <summary>Optional: Hiding Music Files</summary>
 

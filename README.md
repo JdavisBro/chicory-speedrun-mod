@@ -12,6 +12,7 @@ or create from scratch: [BUILDING.md](https://github.com/JdavisBro/chicory-speed
 
 - Savestate (kinda)
   - By pressing `pagedown + 0 - 9` you can save the game to a slot and load it by pressing `pageup + the same number`
+  - Saving and loading before getting the brush might not work, if that happens, pickup the brush then restart the game.
   - Note: this uses the games regular saving and loading mechanics, for example if you save on the sky you will be put to the nearest ground exactly how loading the game regularly does.
   - Note 2: art, custom clothing, and things like that are not copied with the slots, which can cause visual glitches but probably won't crash or change progress. Timelapses are also not copied and WILL LIKELY crash if you try to view them.
 - Pressing home lets you change your custom palette anywhere.

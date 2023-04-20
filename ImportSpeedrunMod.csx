@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 using System.Linq;
 using UndertaleModLib.Util;
 
+// Change save folder and window title
+ScriptMessage(Data.GeneralInfo.FileName.Content);
+Data.GeneralInfo.FileName.Content = "paintdog-speedrun";
+Data.GeneralInfo.Name.Content = "paintdog-speedrun";
+Data.GeneralInfo.DisplayName.Content = "Chicory_A_Speedrunning_Mod";
+
 string importFolder = Path.GetFullPath("Code/");
 
 string[] dirFiles = Directory.GetFiles(importFolder);
