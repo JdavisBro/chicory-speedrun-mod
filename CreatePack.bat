@@ -16,7 +16,7 @@ if not exist %cpath%\game.ios (goto noGameios)
 set packdir="Packs\C.%ver%"
 @echo on
 mkdir "Packs"
-rmdir %packdir%
+rmdir /s /Q %packdir%
 mkdir %packdir%
 mkdir %packdir%\speedrun-mod
 InstallScripts\xdelta3.exe -e -s %cpath%\game.ios %cpath%\speedrun.win %packdir%\speedrun-mod\patch.xdelta

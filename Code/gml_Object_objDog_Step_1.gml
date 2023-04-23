@@ -132,7 +132,7 @@ if (copy) {
 
 if (buttonlist_pressed(global.custom_buttons, 0) && !title) { // PALETTE
     Drawing(string_translate("draw_palette"), -1, "palette", -2, 0)
-    GiftStamp(27, 0)
+    data_set("stamp_27", 1)
     data_set("stamp_unlocked", 1)
     SceneEnd()
 }

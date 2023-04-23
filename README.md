@@ -19,7 +19,7 @@ or create from scratch: [BUILDING.md](https://github.com/JdavisBro/chicory-speed
   - Note 2: art, custom clothing, and things like that are not copied with the slots, which can cause visual glitches but probably won't crash or change progress. Timelapses are also not copied and WILL LIKELY crash if you try to view them.
 - Teleporting - Pressing / teleports the dog to your cursor
 - Chapter Select - Pressing = brings up the chapter select menu (without adding it to the regular pause menu)
-- Custom Palette Modifying - Pressing home lets you change your custom palette anywhere.
+- Custom Palette Modifying - Pressing home lets you change your custom palette anywhere. (Note: on first time use you need to save & exit to make brush styles work)
 
 ## Planned Features:
 
