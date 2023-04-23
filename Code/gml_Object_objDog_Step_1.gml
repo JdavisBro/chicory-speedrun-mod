@@ -2,6 +2,86 @@ if ((os_type == os_windows || os_type == os_macosx) && global.cur_players < glob
     coop_search()
 event_inherited()
 
+// Mod Stuff:
+
+var title = global.the_leveleditor.level_z == 1 && (global.the_leveleditor.level_x == 2 || global.the_leveleditor.level_x == 1) && global.the_leveleditor.level_y == 0 // on title/newgame screen
+
+// mod settings menu
+if (!title) {mod_pause = false}
+
+if (title && buttonlist_pressed(global.mod_settings_buttons, 0) && !mod_pause_controls_setting) { // Toggle mod pause
+    mod_pause = !mod_pause
+    if (mod_pause) {
+        mod_pause_start_x = x
+        mod_pause_start_y = y
+        mod_pause_menu = 0
+        mod_pause_selected = 0
+        mod_pause_controls_setting = false
+    } else {
+        x = mod_pause_start_x
+        y = mod_pause_start_y
+    }
+}
+
+if (mod_pause) { // Note: in much of this code i'll do ds_list_find_value(list, index) instead of list[index]. that's because UndertaleModTool doesn't compile that correctly a lot of the time with nested lists.
+    x = 1920 / 2
+    y = 1080 / 2
+    if (buttonlist_pressed(global.confirm_buttons, 0) || buttonlist_pressed(global.interact_buttons, 0)) { // confirm pressed.
+        switch (mod_pause_menu) {
+            case 0: // pause
+                switch (mod_pause_selected) {
+                    case 0: // controls
+                        mod_pause_menu = 1
+                        mod_pause_selected = 0
+                        break
+                }
+                mod_pause_selected = 0
+                break
+            case 1: // controls
+                if (!mod_pause_controls_setting) {
+                    ds_list_destroy(ds_list_find_value(mod_pause_controls ,mod_pause_selected))
+                    var newlist = ds_list_create()
+                    if (mod_pause_selected == 0)
+                        ds_list_add(newlist, 35 + global.control_constant)
+                    ds_list_replace(mod_pause_controls, mod_pause_selected, newlist)
+                    mod_pause_controls_setting = true
+                } else {
+                    controls_save()
+                    mod_pause_controls_setting = false
+                }
+                break
+        }
+    } else if (buttonlist_pressed(global.back_buttons, 0)) { // back pressed.
+        switch (mod_pause_menu) {
+            case 0:
+                mod_pause = false
+                x = mod_pause_start_x
+                y = mod_pause_start_y
+                break
+            default:
+                mod_pause_menu = 0
+                mod_pause_selected = 0
+                mod_pause_controls_setting = false
+                break
+        }
+    } else if (mod_pause_menu == 1 && mod_pause_controls_setting) { // setting a control
+        if (keyboard_key != vk_nokey && keyboard_check_pressed(keyboard_key)) { // keyboard_key just pressed
+            if (ds_list_find_index(ds_list_find_value(mod_pause_controls, mod_pause_selected), keyboard_key + global.control_constant) == -1 && ds_list_size(ds_list_find_value(mod_pause_controls, mod_pause_selected)) < 4) { // not already selected, less than 4 keys done.
+                ds_list_add(ds_list_find_value(mod_pause_controls, mod_pause_selected), keyboard_key + global.control_constant)
+            }
+        }
+    } else if (buttonlist_pressed(global.up_buttons, 0)) { // up pressed.
+        if (mod_pause_selected != 0) {
+            mod_pause_selected -= 1
+        }
+    } else if (buttonlist_pressed(global.down_buttons, 0)) { // down pressed.
+        if (mod_pause_selected != (ds_list_size(ds_list_find_value(mod_pause_menu_options, mod_pause_menu)) - 1)) {
+            mod_pause_selected += 1
+        }
+    }
+} else {
+
+
 var copy = false // SAVE STATE
 var copyfrom = ""
 var copyto = ""
@@ -15,21 +95,21 @@ for (var i = 0; i < 10; i += 1) {
     }
 }
 
-var title = global.the_leveleditor.level_z == 1 && (global.the_leveleditor.level_x == 2 || global.the_leveleditor.level_x == 1) && global.the_leveleditor.level_y == 0 // on title/newgame screen
 
 if (num >= 0 && !title) {
-    if (keyboard_check(vk_pagedown)) { // pagedown pressed, save.
+    if (buttonlist_check(global.savestate_buttons, 0)) { // save pressed, save.
         save_game()
         copy = true
         copyfrom = "save/_playdata_backup" // save_game saves to _playdata_backup and async copies that to _playdata which means it might not be immediately updated, so copy _playdata_backup
         copyto = "saveslots/" + string(num) + "/_playdata"
-    } else if (keyboard_check(vk_pageup)) { // pageup (and not pagedown) pressed, load.
+    } else if (buttonlist_check(global.loadstate_buttons, 0)) { // load pressed, load.
         copy = true
         copyfrom = "saveslots/" + string(num) + "/_playdata"
         copyto = "save/_playdata"
         do_load = true
     }
 }
+
 if (copy) {
     if (file_exists(copyto) && file_exists(copyfrom)) {
         file_delete(copyto)
@@ -50,8 +130,23 @@ if (copy) {
     }
 }
 
-if (keyboard_check_pressed(vk_home)) { // PALETTE
+if (buttonlist_pressed(global.custom_buttons, 0) && !title) { // PALETTE
     Drawing(string_translate("draw_palette"), -1, "palette", -2, 0)
     GiftStamp(27, 0)
+    data_set("stamp_unlocked", 1)
     SceneEnd()
 }
+
+if (buttonlist_pressed(global.teleport_buttons, 0)) { // teleport
+    x = mouse_x
+    y = mouse_y
+}
+
+if (buttonlist_pressed(global.chaptersel_buttons, 0) && global.the_gameobj.can_menu && !title) {
+    global.paused = 1
+    global.the_gameobj.pause_master = 1
+    global.the_gameobj.pause_select = 0
+    global.the_gameobj.pause_sceneselect = 1
+}
+
+} // End of pause else

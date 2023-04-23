@@ -1,7 +1,7 @@
 @echo off
 set ver="55"
 set /p ver="Chicory Game Version: C."
-set cpath=Chicory/C.%ver%/
+set cpath=Chicory\C.%ver%\
 
 if not exist %cpath% (goto noChicory)
 if not exist %cpath%\macaroni.win (goto noMacaroni)
@@ -12,13 +12,6 @@ UndertaleModTool\UndertaleModCli.exe load %cpath%\macaroni.win -s ImportSpeedrun
 @echo off
 echo IF THE PREVIOUS ERRORED, SEND TO JdavisBro FIRST.
 
-set package="n"
-set /p package="Create Install Package? [y/n] (default - %package%) "
-
-if "%package%"=="y" (goto createPack)
-exit
-
-:createPack
 if not exist %cpath%\game.ios (goto noGameios)
 set packdir="Packs\C.%ver%"
 @echo on
@@ -26,7 +19,7 @@ mkdir "Packs"
 rmdir %packdir%
 mkdir %packdir%
 mkdir %packdir%\speedrun-mod
-InstallScripts\xdelta3.exe -e -s %cpath%/game.ios %cpath%/speedrun.win %packdir%\speedrun-mod\patch.xdelta
+InstallScripts\xdelta3.exe -e -s %cpath%\game.ios %cpath%\speedrun.win %packdir%\speedrun-mod\patch.xdelta
 copy InstallScripts\* %packdir%\speedrun-mod\
 if exist InstallTxt\%ver%.txt (
     copy InstallTxt\%ver%.txt %packdir%\INSTALL.txt
@@ -34,6 +27,7 @@ if exist InstallTxt\%ver%.txt (
     copy InstallTxt\generic.txt %packdir%\INSTALL.txt
 )
 copy VERSION.txt %packdir%\VERSION.txt
+pause
 exit
 
 :noChicory
