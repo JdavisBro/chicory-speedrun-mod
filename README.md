@@ -25,6 +25,7 @@ or create from scratch: [BUILDING.md](https://github.com/JdavisBro/chicory-speed
 
 - Boss phase skipping/undoing
 - Clear a screen's, paint, breakable rocks, and other things like that
+- Patch that works on the Windows version of Chicory.
 
 ## Used Software:
 

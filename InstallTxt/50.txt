@@ -1,6 +1,6 @@
 Installation:
 
-Download the mac version of Chicory:
+Download the mac version of Chicory: ---> (this is required even for windows) <---
 
 Open steam console by pressing ctrl + r and typing
 
@@ -10,7 +10,7 @@ In steam console paste the following command:
 
 download_depot 1123450 1123452 6113710901506258771
 
-this will download version .50 of the Mac version of Chicory to BaseSteamFodler\steamapps\content\app_1123450\depot_1123452\
+this will download version .50 of the Mac version of Chicory to BaseSteamFolder\steamapps\content\app_1123450\depot_1123452\
 
 Rename and move the resources folder from that download, I'll call this the Game folder. This is usually at `C:\Program Files (x86)\Steam\steamapps\content\app_1123450\depot_1123452\Mac\Chicory_A_Colorful_Tale.app\Contents\Resources` for a regular steam installation.
 

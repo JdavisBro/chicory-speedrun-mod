@@ -1,6 +1,6 @@
 Installation:
 
-Download the mac version of Chicory:
+Download the mac version of Chicory: ---> (this is required even for windows) <---
 
 Open steam console by pressing ctrl + r and typing
 

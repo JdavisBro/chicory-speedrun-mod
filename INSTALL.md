@@ -4,7 +4,7 @@ First get the version of the mod for the version of the game you want: [releases
 
 (Version .50 and .55 currently available)
 
-Download the mac version of Chicory:
+Download the mac version of Chicory: ---> (this is required even for windows) <---
 
 Open steam console by pressing ctrl + r and typing `steam://open/console`
 
