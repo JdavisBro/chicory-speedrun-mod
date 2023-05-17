@@ -20,12 +20,11 @@ or create from scratch: [BUILDING.md](https://github.com/JdavisBro/chicory-speed
 - Teleporting - Pressing / teleports the dog to your cursor
 - Chapter Select - Pressing = brings up the chapter select menu (without adding it to the regular pause menu)
 - Custom Palette Modifying - Pressing home lets you change your custom palette anywhere. (Note: on first time use you need to save & exit to make brush styles work)
+- Clear screen - Press delete to clear most of a screens paint and reset breakable rocks.
 
 ## Planned Features:
 
 - Boss phase skipping/undoing
-- Clear a screen's, paint, breakable rocks, and other things like that
-- Patch that works on the Windows version of Chicory.
 
 ## Used Software:
 
