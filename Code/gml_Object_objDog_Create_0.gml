@@ -282,13 +282,14 @@ mod_pause_menu_options = list_of_lists(
         "Loadstate",
         "Change Custom Palette",
         "Teleport to Cursor",
-        "Chapter Select"
+        "Chapter Select",
+        "Reset Screen"
     )
 )
 mod_pause_menu = 0 // 0 = default, 1 = controls
 mod_pause_controls_setting = false
 mod_pause_controls = list_of_lists(
-    global.mod_settings_buttons, global.savestate_buttons, global.loadstate_buttons, global.custom_buttons, global.teleport_buttons, global.chaptersel_buttons
+    global.mod_settings_buttons, global.savestate_buttons, global.loadstate_buttons, global.custom_buttons, global.teleport_buttons, global.chaptersel_buttons, global.resetscreen_buttons
 )
 mod_pause_start_x = 0
 mod_pause_start_y = 0

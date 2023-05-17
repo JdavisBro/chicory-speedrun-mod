@@ -160,4 +160,24 @@ if (buttonlist_pressed(global.chaptersel_buttons, 0) && global.the_gameobj.can_m
     global.the_gameobj.pause_sceneselect = 1
 }
 
+if (buttonlist_pressed(global.resetscreen_buttons, 0) && !title) { // RESET SCREEN
+    with (global.the_levelobj.paint)
+        paint_update_rect(0, 0, 9999, 9999, 0)
+    with (objProp) {
+        if (painted_layers > 0) {
+            for (var i = 0; i < painted_layers; i += 1) {
+                painted_layer[i] = 16744576
+            }
+        } else {
+            painted_color = 0
+        }
+    }
+    with (objCrackrock) {
+        data_set("rockbomb" + global.the_leveleditor.level_title + "_" + string(x) + "_" + string(y), 0)
+    }
+    save_game()
+    Transition(global.the_leveleditor.level_z, global.the_leveleditor.level_x, global.the_leveleditor.level_y, -1)
+
+
+}
 } // End of pause else

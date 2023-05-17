@@ -39,9 +39,10 @@ function buttonlist_defaults() //gml_Script_buttonlist_defaults
     global.custom_buttons = list_Create(36 + global.control_constant)
     global.teleport_buttons = list_Create(191 + global.control_constant)
     global.chaptersel_buttons = list_Create(187 + global.control_constant)
+    global.resetscreen_buttons = list_Create(46 + global.control_constant)
     var newblists = list_of_lists(
         global.left_buttons, global.right_buttons, global.jump_buttons, global.interact_buttons, global.skip_buttons, global.confirm_buttons, global.back_buttons, global.swim_buttons, global.color_buttons, global.size_buttons, global.draw_buttons, global.erase_buttons, global.zoom_buttons, global.stamp1_buttons, global.stamp2_buttons, global.stamp3_buttons, global.stamp4_buttons, global.up_buttons, global.down_buttons, global.pause_buttons, global.menu_buttons, global.inven_buttons, global.map_buttons, global.skipscene_buttons,
-        global.mod_settings_buttons, global.savestate_buttons, global.loadstate_buttons, global.custom_buttons, global.teleport_buttons, global.chaptersel_buttons
+        global.mod_settings_buttons, global.savestate_buttons, global.loadstate_buttons, global.custom_buttons, global.teleport_buttons, global.chaptersel_buttons, global.resetscreen_buttons
     )
     if (!variable_global_exists("buttonlists") || !ds_exists(global.buttonlists, ds_type_list)) {
         global.buttonlists = newblists
