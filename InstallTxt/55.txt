@@ -1,6 +1,6 @@
 Installation:
 
-Download the mac version of Chicory: ---> (this is required even for windows) <---
+Download the Windows version of Chicory for your version:
 
 Open steam console by pressing ctrl + r and typing
 
@@ -10,9 +10,9 @@ In steam console paste the following command:
 
 download_depot 1123450 1123452 1811707737243329344
 
-this will download version .55 of the Mac version of Chicory to BaseSteamFolder\steamapps\content\app_1123450\depot_1123452\
+this will download version .55 of Chicory to BaseSteamFolder\steamapps\content\app_1123450\depot_1123451\
 
-Rename and move the resources folder from that download, I'll call this the Game folder. This is usually at `C:\Program Files (x86)\Steam\steamapps\content\app_1123450\depot_1123452\Mac\Chicory_A_Colorful_Tale.app\Contents\Resources` for a regular steam installation.
+Rename and move the resources folder from that download, I'll call this the Game folder. This is usually at `C:\Program Files (x86)\Steam\steamapps\content\app_1123450\depot_1123451\PC\` for a regular steam installation.
 
 Move the speedrun-mod folder into the game folder and go inside it.
 
