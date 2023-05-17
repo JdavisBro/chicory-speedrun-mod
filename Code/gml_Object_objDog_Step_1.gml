@@ -9,6 +9,8 @@ var title = global.the_leveleditor.level_z == 1 && (global.the_leveleditor.level
 // mod settings menu
 if (!title) {mod_pause = false}
 
+var pause_objs = list_Create(objTitle, objTimelapseshroom, objClearTimelapseshroom, objCoopshroom, objOptionshroom, objQuitshroom, objNewgame)
+
 if (title && buttonlist_pressed(global.mod_settings_buttons, 0) && !mod_pause_controls_setting) { // Toggle mod pause
     mod_pause = !mod_pause
     if (mod_pause) {
@@ -17,13 +19,19 @@ if (title && buttonlist_pressed(global.mod_settings_buttons, 0) && !mod_pause_co
         mod_pause_menu = 0
         mod_pause_selected = 0
         mod_pause_controls_setting = false
+        for (var i = 0; i < ds_list_size(pause_objs); i+=1) {
+            instance_deactivate_object(ds_list_find_value(pause_objs, i))
+        }
     } else {
         x = mod_pause_start_x
         y = mod_pause_start_y
+        for (var i = 0; i < ds_list_size(pause_objs); i+=1) {
+            instance_activate_object(ds_list_find_value(pause_objs, i))
+        }
     }
 }
 
-if (mod_pause) { // Note: in much of this code i'll do ds_list_find_value(list, index) instead of list[index]. that's because UndertaleModTool doesn't compile that correctly a lot of the time with nested lists.
+if (mod_pause) {
     x = 1920 / 2
     y = 1080 / 2
     if (buttonlist_pressed(global.confirm_buttons, 0) || buttonlist_pressed(global.interact_buttons, 0)) { // confirm pressed.
@@ -57,6 +65,9 @@ if (mod_pause) { // Note: in much of this code i'll do ds_list_find_value(list, 
                 mod_pause = false
                 x = mod_pause_start_x
                 y = mod_pause_start_y
+                for (var i = 0; i < ds_list_size(pause_objs); i+=1) {
+                    instance_activate_object(ds_list_find_value(pause_objs, i))
+                }
                 break
             default:
                 mod_pause_menu = 0
