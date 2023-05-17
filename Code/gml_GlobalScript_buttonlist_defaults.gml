@@ -53,5 +53,13 @@ function buttonlist_defaults() //gml_Script_buttonlist_defaults
         controls_check_interact_default() // This is set at the top because it assumes no user controls are used.
     } // we have the same or MORE???? controls than we should.
 
+    if (instance_exists(objDog)) {
+        with (objDog) {
+            mod_pause_controls = list_of_lists(
+                global.mod_settings_buttons, global.savestate_buttons, global.loadstate_buttons, global.custom_buttons, global.teleport_buttons, global.chaptersel_buttons, global.resetscreen_buttons
+            )
+        }
+    }
+
 }
 

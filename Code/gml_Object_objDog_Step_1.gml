@@ -9,7 +9,7 @@ var title = global.the_leveleditor.level_z == 1 && (global.the_leveleditor.level
 // mod settings menu
 if (!title) {mod_pause = false}
 
-var pause_objs = list_Create(objTitle, objTimelapseshroom, objClearTimelapseshroom, objCoopshroom, objOptionshroom, objQuitshroom, objNewgame)
+var pause_objs = list_Create(objTitle, objOptionshroom, objNewgame)
 
 if (title && buttonlist_pressed(global.mod_settings_buttons, 0) && !mod_pause_controls_setting) { // Toggle mod pause
     mod_pause = !mod_pause
@@ -177,7 +177,6 @@ if (buttonlist_pressed(global.resetscreen_buttons, 0) && !title) { // RESET SCRE
     }
     save_game()
     Transition(global.the_leveleditor.level_z, global.the_leveleditor.level_x, global.the_leveleditor.level_y, -1)
-
-
 }
+
 } // End of pause else
