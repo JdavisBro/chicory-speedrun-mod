@@ -27,8 +27,14 @@ or create from scratch: [BUILDING.md](https://github.com/JdavisBro/chicory-speed
 
 - Boss phase skipping/undoing
 
-## Used Software:
+## Credits/Used Software:
 
+### Thanks!
+
+- Chicory - Greg Lobanov/Wishes Unlimited
 - UndertaleModTool - https://github.com/krzys-h/UndertaleModTool
 - xdelta - https://github.com/jmacd/xdelta-gpl
+
+### Other Credits
+
 - gamemaker - yoyogame
