@@ -21,6 +21,7 @@ or create from scratch: [BUILDING.md](https://github.com/JdavisBro/chicory-speed
 - Chapter Select - Pressing = brings up the chapter select menu (without adding it to the regular pause menu)
 - Custom Palette Modifying - Pressing home lets you change your custom palette anywhere. (Note: on first time use you need to save & exit to make brush styles work)
 - Clear screen - Press delete to clear most of a screens paint and reset breakable rocks.
+- Hitboxes on bossfights are visible
 
 ## Planned Features:
 

@@ -179,4 +179,7 @@ if (buttonlist_pressed(global.resetscreen_buttons, 0) && !title) { // RESET SCRE
     Transition(global.the_leveleditor.level_z, global.the_leveleditor.level_x, global.the_leveleditor.level_y, -1)
 }
 
+with (objHitbox) // HITBOXES
+    visible = true
+
 } // End of pause else
